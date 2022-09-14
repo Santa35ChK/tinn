@@ -11,6 +11,7 @@
 import TheHeader from "@/components/TheHeader"
 import ModalComponent from "@/components/ModalComponent"
 
+
 export default {
   name: 'App',
   components: {
@@ -23,4 +24,3 @@ export default {
   }
 }
 </script>
-

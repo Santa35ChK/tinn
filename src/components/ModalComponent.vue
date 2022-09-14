@@ -9,7 +9,6 @@
             :options="dropOptions"
             @vdropzone-file-added="sendingEvent"
             @vdropzone-complete="afterComplete"
-            
             >
                 <div class="modal_header">
                     <div class="modal_title">
@@ -40,42 +39,29 @@ export default {
     data() {
         return {
             dropOptions: {
-            url: "https://tinn.re-work.pro/api/video/test",
-             addRemoveLinks: true,
-            autoProcessQueue: false,
-            headers: {
-                        "accept": "application/json",
-                        "Content-Type": "multipart/form-data",
-                        'Cache-Control': null,
-                        'X-Requested-With': null
-//                         // "Access-Control-Allow-Origin" : "*",
-// // "Access-Control-Allow-Headers": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
-}
+                url: "https://tinn.re-work.pro/api/video/test",
+                addRemoveLinks: true,
+                  previewsContainer: false,
+                autoProcessQueue: false,
+                headers: {
+                    "accept": "application/json",
+                    "Content-Type": "multipart/form-data",
+                }
             }
     }
 },
 methods: {
     sendingEvent(file) {
-
-        const url = "https://tinn.re-work.pro/api/video/test";
-        let headers = {
-                       
-                };
-                axios({method: 'post', url: url, headers: headers, data: { name:file.name, type: file.type}})
-                .then(x=> {
-                    var options = { headers: {
-                        'Content-Type': file.type,
-                        'Cache-Control': null,
-                        'X-Requested-With': null,
-                        "accept": "application/json",
-                    }}
-                    axios.put(x.data.uploadURL, file, options)
-                })
-                .then(status => {
-                        this.status = status;
+        
+        const url = "https://tinn.re-work.pro/api/video/test"
+        let data = new FormData()
+        data.append('video', file)
+        axios.post(url, data, {headers: this.headers})
+                .then(response => {
+                        console.log(response)
                     })
                     .catch(err => {
-                        this.error = err;
+                        console.log(err.data.message)
                     })
 
     },
@@ -99,6 +85,7 @@ methods: {
     transition: opacity 0.3s ease;
     padding: 76px 385px ;
     .modal_container {
+        font-family: "Century Gothic";
         padding: 20px 30px;
         background: #FFFFFF;
         box-shadow: 0px 5px 50px rgba(0, 0, 0, 0.07);
@@ -116,7 +103,7 @@ methods: {
             }
         }
         .modal_body {
-            padding: 21vh 0px 25vh;
+            padding: 15vh 0px 19vh;
             text-align: center;
             .modal_description {
                 margin: 25px 0 40px;
