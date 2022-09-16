@@ -178,3 +178,16 @@
         }
     }
 }
+
+.error {
+    color: red;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    font-size: 12px;
+}
+
+.input-error {
+    border-bottom: 1px solid red !important;
+}

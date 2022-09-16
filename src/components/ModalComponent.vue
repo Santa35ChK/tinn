@@ -60,8 +60,8 @@ export default {
                 this.$toast.success("Видео успешно загружено")
             })
             .catch(err => {
-                console.log(err.data.message)
                 this.$toast.error("Что-то пошло не так..")
+                console.log(err.data.message)
             })
         },
         afterComplete() {

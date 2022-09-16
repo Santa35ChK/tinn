@@ -3,21 +3,34 @@
         <div class="personal_container">
             <form class="personal_form" @submit.prevent="saveChanges">
                 <div class="personal_header">
-                    <input type="text" placeholder="Логин" id="login" :class="{ 'error': $v.copyUserData.login.$error }" class="personal_login" v-model.trim="$v.copyUserData.login.$model" >
-                    <input type="email" placeholder="Email" id="email" required class="personal_email" v-model="copyUserData.email" >
+                    <input placeholder="Логин" id="login" :class="{ 'input-error': $v.copyUserData.login.$error }" class="personal_login" v-model.trim="$v.copyUserData.login.$model" >
+                    <div class="error" v-if="!$v.copyUserData.login.required">Поле обязательно для заполнения</div>
+                    <div class="error" v-if="!$v.copyUserData.login.alphaNum">Допускается ввод только латинских букв и чисел</div>
+                    <input placeholder="Email" id="email" class="personal_email" :class="{ 'input-error': $v.copyUserData.email.$error }" v-model.trim="$v.copyUserData.email.$model">
+                    <div class="error" v-if="!$v.copyUserData.email.required">Поле обязательно для заполнения</div>
+                    <div class="error" v-if="!$v.copyUserData.email.email">Введите email-адрес в формате: example@mail.com</div>
                 </div>
                 <div class="personal_body">
-                    <input type="text" placeholder="Имя" id="name" class="personal_name" :class="{ 'error': $v.copyUserData.name.$error }" v-model.trim="$v.copyUserData.name.$model">
-                    <input type="text" placeholder="Фамилия" id="surname" required class="personal_surname" v-model="copyUserData.surname" >
+                    <input placeholder="Имя" id="name" class="personal_name" :class="{ 'input-error': $v.copyUserData.name.$error }" v-model.trim="$v.copyUserData.name.$model">
+                    <div class="error" v-if="!$v.copyUserData.name.required">Поле обязательно для заполнения</div>
+                    <div class="error" v-if="!$v.copyUserData.name.alpha">Только буквы русского и латинского алфавита</div>
+                    <input placeholder="Фамилия" id="surname" class="personal_surname" :class="{ 'input-error': $v.copyUserData.surname.$error }" v-model.trim="$v.copyUserData.surname.$model">
+                    <div class="error" v-if="!$v.copyUserData.surname.required">Поле обязательно для заполнения</div>
+                    <div class="error" v-if="!$v.copyUserData.surname.alpha">Только буквы русского и латинского алфавита</div>
                 </div>
                 <div class="personal_footer">
-                    <input type="phone" v-mask="'+7 (###) ### ## ##'" placeholder="Телефон" id="phone"  class="personal_phone" v-model="copyUserData.phone">
+                    <input v-mask="'+7 (###) ### ## ##'" placeholder="Телефон" id="phone" class="personal_phone" :class="{ 'input-error': $v.copyUserData.phone.$error }" v-model="$v.copyUserData.phone.$model">
+                    <div class="error" v-if="!$v.copyUserData.phone.required">Поле обязательно для заполнения</div>
+                    <div class="error" v-if="!$v.copyUserData.phone.minLength">Введите номер в формате 900-000-00-00</div>
                     <div class="personal_date">
-                        <input type="text" placeholder="ДД" id="day" required class="personal_day" maxlength="2" v-model="copyUserData.day"
+                        <div class="error" v-if="!$v.copyUserData.day.required || !$v.copyUserData.day.between">!</div>
+                        <input placeholder="ДД" id="day" v-mask="'##'" class="personal_day" :class="{ 'input-error': $v.copyUserData.day.$error }" v-model.trim="$v.copyUserData.day.$model"
                         >
-                        <input type="text" placeholder="MM" id="month" required class="personal_month" maxLength="2" v-model="copyUserData.month"
+                        <div class="error" v-if="!$v.copyUserData.month.required || !$v.copyUserData.month.between">!</div>
+                        <input  placeholder="MM" id="month" v-mask="'##'" class="personal_month" :class="{ 'input-error': $v.copyUserData.month.$error }" v-model.trim="$v.copyUserData.month.$model"
                         >
-                        <input type="text" placeholder="ГГГГ" id="year" required class="personal_year" maxLength="4"  v-model="copyUserData.year"
+                        <div class="error" v-if="!$v.copyUserData.year.required || !$v.copyUserData.year.between">!</div>
+                        <input placeholder="ГГГГ" v-mask="'####'" id="year" class="personal_year" :class="{ 'input-error': $v.copyUserData.year.$error }" v-model.trim="$v.copyUserData.year.$model"
                         >
                     </div>
                 </div>
@@ -28,7 +41,7 @@
 </template>
 
 <script>
-import { required, alphaNum } from 'vuelidate/lib/validators'
+import { required, alphaNum, email, minLength, maxLength, numeric, between} from 'vuelidate/lib/validators'
 import { helpers } from 'vuelidate/lib/validators'
 const alpha = helpers.regex('alpha', /^[a-zA-Zа-яА-Я]*$/)
 
@@ -60,9 +73,37 @@ export default {
                 required,
                 alphaNum
             },
+            email: {
+                required,
+                email
+            },
             name: {
                 required,
                 alpha
+            },
+            surname: {
+                required,
+                alpha
+            },
+            phone: {
+                required,
+                minLength: minLength(18)
+            },
+            day: {
+                required,
+                numeric,
+                between: between(0, 31),
+                maxLength: maxLength(2)
+            },
+            month: {
+                required,
+                maxLength: maxLength(2),
+                between: between(0, 12),
+            },
+            year: {
+                required,
+                maxLength: maxLength(4),
+                between: between(1900,2022)
             }
         }
     }
