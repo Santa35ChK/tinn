@@ -1,0 +1,180 @@
+.personal {
+    width: 500px;
+    .personal_container {
+        padding: 30px 30px 20px 30px;
+        background: #FFFFFF;
+        box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.03);
+        border-radius: 10px;
+        .personal_form {
+            display: flex;
+            flex-direction: column;
+            .personal_header {
+                .personal_login {
+                    width: 100%;
+                    border-top: 0;
+                    border-left: 0;
+                    border-right: 0;
+                    border-bottom: solid 1px #cbcbcb;
+                    padding-left: 5px;
+                    padding-bottom: 10px;
+                    font-size: 13px;
+                    line-height: 18px;
+                    color: #000;
+                    &::placeholder {
+                        font-size: 13px;
+                        line-height: 18px;
+                        color: #888888
+                    }
+                }
+                .personal_email {
+                    margin-top: 25px;
+                    width: 100%;
+                    border-top: 0;
+                    border-left: 0;
+                    border-right: 0;
+                    border-bottom: solid 1px #cbcbcb;
+                    padding-left: 5px;
+                    padding-bottom: 10px;
+                    font-size: 13px;
+                    line-height: 18px;
+                    color: #000;
+                    &::placeholder {
+                        font-size: 13px;
+                        line-height: 18px;
+                        color: #888888
+                    }
+                }
+            }
+            .personal_body {
+                margin-top: 25px;
+                display: flex;
+                justify-content: space-between;
+                .personal_name {
+                    width: 42%;
+                    border-top: 0;
+                    border-left: 0;
+                    border-right: 0;
+                    border-bottom: solid 1px #cbcbcb;
+                    padding-left: 5px;
+                    padding-bottom: 10px;
+                    font-size: 13px;
+                    line-height: 18px;
+                    color: #000;
+                    &::placeholder {
+                        font-size: 13px;
+                        line-height: 18px;
+                        color: #888888
+                    }
+                }
+                .personal_surname {
+                    width: 42%;
+                    border-top: 0;
+                    border-left: 0;
+                    border-right: 0;
+                    border-bottom: solid 1px #cbcbcb;
+                    padding-left: 5px;
+                    padding-bottom: 10px;
+                    font-size: 13px;
+                    line-height: 18px;
+                    color: #000;
+                    &::placeholder {
+                        font-size: 13px;
+                        line-height: 18px;
+                        color: #888888
+                    }
+                }
+            }
+            .personal_footer {
+                margin-top: 25px;
+                display: flex;
+                justify-content: space-between;
+                .personal_phone {
+                    width: 49%;
+                    border-top: 0;
+                    border-left: 0;
+                    border-right: 0;
+                    border-bottom: solid 1px #cbcbcb;
+                    padding-left: 5px;
+                    padding-bottom: 10px;
+                    font-size: 13px;
+                    line-height: 18px;
+                    color: #000;
+                    &::placeholder {
+                        font-size: 13px;
+                        line-height: 18px;
+                        color: #888888
+                    }
+                }
+                .personal_date {
+                    width: 35%;
+                    display: flex;
+                    justify-content: space-between;
+                    .personal_day {
+                        width: 20%;
+                        padding-bottom: 10px;
+                        border-top: 0;
+                        border-left: 0;
+                        border-right: 0;
+                        border-bottom: solid 1px #cbcbcb;
+                        font-size: 13px;
+                        line-height: 18px;
+                        color: #000;
+                        &::placeholder {
+                            text-align: center;
+                            font-size: 13px;
+                            line-height: 18px;
+                            color: #888888;
+                        }
+                    }
+                    .personal_month {
+                        width: 20%;
+                        padding-bottom: 10px;
+                        border-top: 0;
+                        border-left: 0;
+                        border-right: 0;
+                        border-bottom: solid 1px #cbcbcb;
+                        font-size: 13px;
+                        line-height: 18px;
+                        color: #000;
+                        &::placeholder {
+                            text-align: center;
+                            font-size: 13px;
+                            line-height: 18px;
+                            color: #888888;
+                        }
+                    }
+                }
+                .personal_year {
+                    width: 42%;
+                    padding-bottom: 10px;
+                    border-top: 0;
+                    border-left: 0;
+                    border-right: 0;
+                    border-bottom: solid 1px #cbcbcb;
+                    font-size: 13px;
+                    line-height: 18px;
+                    color: #000;
+                    &::placeholder {
+                        text-align: center;
+                        font-size: 13px;
+                        line-height: 18px;
+                        color: #888888;
+                    }
+                }
+            }
+            .personal_button {
+                margin-top: 80px;
+                align-self: flex-end;
+                padding: 9px 21px;
+                text-align: center;
+                background: #3D88F8;
+                border: 0px;
+                border-radius: 5px;
+                font-size: 13px;
+                line-height: 18px;
+                color: #fff;
+                cursor: pointer;
+            }
+        }
+    }
+}

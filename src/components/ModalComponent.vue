@@ -48,23 +48,23 @@ export default {
                 }
             }
     }
-},
-methods: {
-    sendingEvent(file) {
-        const url = "https://tinn.re-work.pro/api/video/test"
-        let data = new FormData()
-        data.append('video', file)
-        axios.post(url, data, {headers: this.headers})
-                .then(response => {
-                        console.log(response)
-                    })
-                    .catch(err => {
-                        console.log(err.data.message)
-                    })
     },
-    afterComplete() {
-        console.log("complete")
+    methods: {
+        sendingEvent(file) {
+            const url = "https://tinn.re-work.pro/api/video/test"
+            let data = new FormData()
+            data.append('video', file)
+            axios.post(url, data, {headers: this.headers})
+            .then(response => {
+                console.log(response)
+            })
+            .catch(err => {
+                console.log(err.data.message)
+            })
+        },
+        afterComplete() {
+            console.log("complete")
+        }
     }
-}
 }
 </script>

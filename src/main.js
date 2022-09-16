@@ -8,11 +8,14 @@ import Toast from "vue-toastification";
 import "vue-toastification/dist/index.css";
 import "./assets/scss/main.scss"
 import App from './App.vue'
+import VueMask from 'v-mask'
+
 
 Vue.config.productionTip = false
 
 Vue.use(VueAxios, axios)
 Vue.use(Vuelidate)
+Vue.use(VueMask);
 
 const options = {}
 Vue.use(Toast, options)

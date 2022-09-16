@@ -1,9 +1,10 @@
 <template>
     <div class="message-form">
+        <EmojiPicker v-if="showEmoji" @emoji_click="handleEmoji"/>
         <form class="message-form_container" >
-            <img class="message_smile" src="@/assets/img/Emoji-smile.svg"/>
+            <img class="message_smile" src="@/assets/img/Emoji-smile.svg" @click="onClick"/>
             <input type="text" class="message_input" v-model="message">
-            <div class="message_button">
+            <div class="message_button" >
                 Отправить
             </div>
         </form>
@@ -11,45 +12,25 @@
 </template>
 
 <script>
-
+import EmojiPicker from '@/components/EmojiPicker/EmojiPicker'
 export default {
+    components: {
+        EmojiPicker
+    },
     data() {
         return{
-            message: ""
-            
+            message: "",
+            showEmoji: false
         }
-        
+    },
+    methods: {
+        onClick() {
+            console.log(this.showEmoji);
+            this.showEmoji = !this.showEmoji
+        },
+        handleEmoji(emoji) {
+            this.message = this.message + emoji
+        }
     }
 }
 </script>
-
-<style lang="scss">
-.message-form {
-    margin-top: 29vw;;
-    padding: 0px 20px 15px;
-    .message-form_container {
-        background: #FFFFFF;
-        border: 1px solid #D8D8D8;
-        border-radius: 22.5px;
-        padding: 7px 15px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        .message_smile {
-            cursor: pointer;
-        }
-        .message_input {
-            width: 70%;
-            border: 0;
-        }
-        .message_button {
-            border: 0;
-            background: #fff;
-            font-size: 14px;
-            line-height: 19px;
-            color: #3E8BFF;
-            cursor: pointer;
-        }
-    }
-}
-</style>

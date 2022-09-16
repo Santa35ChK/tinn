@@ -12,12 +12,13 @@ export default new Vuex.Store({
         userData: {
             login: "Example",
             email: "lorem@example.ru",
-            phone: '79009999999',
+            phone: '9009999999',
             name: "Вася",
             surname: "Иванов",
             day: "10",
             month: "01",
-            year: "1991"
+            year: "1991",
+            birthday: "",
         },
         notifications: [{
                 name: "sound",
@@ -59,13 +60,14 @@ export default new Vuex.Store({
     },
     mutations: {
         setUserData(state, data) {
+            data.birthday = data.day + "." + data.month + "." + data.year;
             state.userData = data
         }
     },
     actions: {
         setUserData({ commit }, data) {
             commit('setUserData', data)
-        }
+        },
     },
     getters: {
         getNotifications(state) {
