@@ -7,14 +7,14 @@
                         Настройки контента
                     </div>
                     <div class="general_checkboxes">
-                        <div class="general_form">
-                            <input type="checkbox" class="general_checkbox" id="recommended">
+                        <form class="general_form">
+                            <input type="checkbox" class="general_checkbox" id="recommended" v-model="generalSettings.showRecommends">
                             <label for="recommended" class="general_label">Показывать блок "Рекомендуемые"</label>
-                        </div>
-                        <div class="general_form">
-                            <input type="checkbox" class="general_checkbox" id="popular">
+                        </form>
+                        <form class="general_form">
+                            <input type="checkbox" class="general_checkbox" id="popular" v-model="generalSettings.showPopular">
                             <label for="popular" class="general_label">Показывать блок "Популярное"</label>
-                        </div>
+                        </form>
                     </div>
                 </div>
                 <div class="general_post">
@@ -22,7 +22,7 @@
                         Электронная почта
                     </div>
                     <div class="general_text">
-                        lore...m@gmail.com
+                        {{userData.email}}
                     </div>
                 </div>
                 <div class="general_phone">
@@ -30,7 +30,7 @@
                         Телефон
                     </div>
                     <div class="general_text">
-                        + 7 ********
+                        + {{userData.phone}}
                     </div>
                 </div>
                 <div class="general_address">
@@ -57,6 +57,20 @@
     </div>
 </template>
 
+<script>
+export default {
+    data() {
+        return {
+            generalSettings: null,
+            userData: null
+        }
+    },
+    created() {
+        this.generalSettings = this.$store.getters.getGeneralSettings
+        this.userData = this.$store.getters.getUserData
+    }
+}
+</script>
 <style lang="scss">
 .general {
     .general_container {
@@ -81,8 +95,38 @@
                         display: flex;
                         align-items: center;
                         .general_checkbox {
-                            margin-right: 4px;
+                            position: absolute;
+                            z-index: -1;
+                            opacity: 0;
                         }
+                        .general_checkbox+label {
+                            display: inline-flex;
+                            align-items: center;
+                            user-select:none;
+                        }
+                        .general_checkbox+label::before{
+                            content: '';
+                            display: inline-block;
+                            width: 15px;
+                            height: 15px;
+                            flex-shrink: 0;
+                            flex-grow: 0;
+                            border: 1px solid #000;
+                            border-radius:4px;
+                            margin-right: 4px;
+                            background-repeat: no-repeat;
+                            background-position: center center;
+                            background-size: 50% 50%;
+                            cursor: pointer;
+                        }
+                        .general_checkbox:checked+label::before {
+                            border-color: #3D88F8;
+                            background-color: #3D88F8;
+                            background-image: url("@/assets/img/checkbox.svg")
+                        }
+                    }
+                    .general_form:not(:first-child) {
+                        margin-top: 8px;
                     }
                 }
             }
