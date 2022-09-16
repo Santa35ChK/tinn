@@ -57,9 +57,11 @@ export default {
             axios.post(url, data, {headers: this.headers})
             .then(response => {
                 console.log(response)
+                this.$toast.success("Видео успешно загружено")
             })
             .catch(err => {
                 console.log(err.data.message)
+                this.$toast.error("Что-то пошло не так..")
             })
         },
         afterComplete() {
