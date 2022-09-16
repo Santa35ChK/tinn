@@ -10,7 +10,6 @@
     transition: opacity 0.3s ease;
     padding: 76px 385px;
     .modal_container {
-        font-family: "Century Gothic";
         padding: 20px 30px;
         background: #FFFFFF;
         box-shadow: 0px 5px 50px rgba(0, 0, 0, 0.07);
@@ -22,6 +21,7 @@
                 font-weight: 700;
                 font-size: 18px;
                 line-height: 22px;
+                font-family: "Century Gothic";
             }
             .modal_close-button {
                 cursor: pointer;
@@ -35,6 +35,7 @@
                 font-size: 18px;
                 line-height: 22px;
                 font-weight: 700;
+                font-family: "Century Gothic";
             }
             .modal_load-button {
                 padding: 14px 36px;
@@ -44,6 +45,7 @@
                 font-size: 16px;
                 line-height: 19px;
                 cursor: pointer;
+                font-family: "Century Gothic";
             }
         }
     }
