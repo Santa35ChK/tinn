@@ -7,6 +7,7 @@ import SettingsPage from '@/pages/SettingsPage.vue'
 import ChatPage from "@/pages/ChatPage.vue"
 
 export default new Router({
+    mode: 'history',
     routes: [{
             path: '/settings',
             component: SettingsPage
