@@ -1,9 +1,9 @@
 <template>
-    <div class="chat">
+    <div class="chat ">
         <div class="chat_container">
-            <div class="chat_users">
+            <div class="chat_users ">
                 <SearchForm @onSearch="handleSearch"/>
-                <div class="chat_list">
+                <div class="chat_list ">
                     <div class="chat_user" v-for="(user,i) in users" :key="i" @click="selectUser(i)">
                         <img class="chat_avatar" :src="user.avatar"/>
                         <div class="chat_name">{{user.name}} {{user.surname}}</div>
@@ -13,6 +13,7 @@
             <div class="chat_messages">
                 <div class="chat_user-window">
                     <div class="chat_user">
+                        <div class="chat_button" @click="showUsers">&#8592;</div>
                         <img :src="selectedUser.avatar" class="chat_avatar">
                         <div class="chat_name">{{selectedUser.name}} {{selectedUser.surname}}</div>
                     </div>
@@ -33,6 +34,7 @@ export default {
         return {
             users: '',
             selectedUser:'',
+            screenWidth: window.screen.width
         }
     },
     components: {
@@ -40,8 +42,14 @@ export default {
     },
     created() {
         this.users = this.$store.getters.getUsers
-        this.selectUser(0)
     },
+    mounted() {
+        if(this.screenWidth <= 1024) {
+            document.querySelector(".chat_messages").classList.add("closed")
+        }
+        this.selectedUser = this.users[0]
+    }
+    ,
     methods: {
         handleSearch(query) {
             this.users = this.$store.getters.getUser(query)
@@ -51,6 +59,21 @@ export default {
         },
         selectUser(i) {
             this.selectedUser = this.users[i]
+            if(this.screenWidth <= 1024) {
+                document.querySelector(".chat_messages").classList.remove("closed");
+                document.querySelector(".chat_users").classList.add("closed")
+            }
+        },
+        showUsers() {
+            if(this.screenWidth <= 1024) {
+                document.querySelector(".chat_users").classList.remove("closed");
+                document.querySelector(".chat_messages").classList.add("closed")
+            }
+        }
+    },
+    watch: {
+        screenWidth() {
+            console.log(this.screenWidth)
         }
     }
 }

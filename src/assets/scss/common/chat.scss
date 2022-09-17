@@ -53,3 +53,72 @@
         }
     }
 }
+
+.closed {
+    display: none !important;
+}
+
+.open {
+    display: flex !important;
+}
+
+@media screen and(max-width: 3000px) {
+    .chat {
+        .chat_container {
+            .chat_messages {
+                .chat_user-window {
+                    .chat_button {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and(max-width:1280px) {
+    .chat {
+        .chat_container {
+            .chat_users {
+                .chat_list {
+                    min-height: 600px;
+                    max-height: 600px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and(max-width:1024px) {
+    .chat {
+        min-height: 80vh;
+        max-height: 80vh;
+        display: flex;
+        .chat_container {
+            border-radius: 0px;
+            border: 0;
+            border-top: 1px solid #D8D8D8;
+            border-bottom: 1px solid #D8D8D8;
+            .chat_users {
+                .chat_list {
+                    width: 100vw;
+                    padding-left: 5vw;
+                    min-height: 55vw;
+                    max-height: 55vw;
+                }
+            }
+            .chat_messages {
+                width: 100vw;
+                .chat_user-window {
+                    .chat_button {
+                        display: block;
+                        color: blue;
+                        cursor: pointer;
+                        font-size: 22px;
+                        margin-right: 15px;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -26,3 +26,27 @@
         }
     }
 }
+
+@media screen and(max-width:1180px) {
+    .message-form {
+        .message-form_container {
+            width: 380px
+        }
+    }
+}
+
+@media screen and(max-width:1080px) {
+    .message-form {
+        .message-form_container {
+            width: 320px
+        }
+    }
+}
+
+@media screen and(max-width:1024px) {
+    .message-form {
+        .message-form_container {
+            width: 100%
+        }
+    }
+}

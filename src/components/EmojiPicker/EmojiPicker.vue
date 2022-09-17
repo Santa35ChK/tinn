@@ -60,7 +60,7 @@ export default {
 	</div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 
 .emoji_picker
 {
@@ -128,4 +128,11 @@ export default {
 	background: white;
 }
 
+@media screen and(max-width: 1024px){
+	.emoji_picker{
+		margin-bottom: 10px;
+		width: 18rem;
+		height: 18rem;
+	}
+}
 </style>

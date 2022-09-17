@@ -26,3 +26,41 @@
         }
     }
 }
+
+@media screen and(max-width: 1180px) {
+    .search-form {
+        .search-form_container {
+            .search-form_form {
+                .search_input {
+                    width: 230px
+                }
+            }
+        }
+    }
+}
+
+@media screen and(max-width: 1080px) {
+    .search-form {
+        .search-form_container {
+            .search-form_form {
+                .search_input {
+                    width: 200px
+                }
+            }
+        }
+    }
+}
+
+@media screen and(max-width: 1024px) {
+    .search-form {
+        .search-form_container {
+            display: flex;
+            justify-content: space-around;
+            .search-form_form {
+                .search_input {
+                    width: 85vw
+                }
+            }
+        }
+    }
+}

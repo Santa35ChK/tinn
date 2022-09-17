@@ -22,3 +22,16 @@
         }
     }
 }
+
+@media screen and(max-width:360px) {
+    .header {
+        .header_container {
+            padding: 8px 10px;
+            .header_menu {
+                .header_buttons {
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+}
