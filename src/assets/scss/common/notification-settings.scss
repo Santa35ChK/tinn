@@ -6,17 +6,13 @@
         border-radius: 10px;
         .notification_notifications {
             .notification_title {
-                margin-right: 264px;
+                margin-right: 272px;
             }
         }
         .notification_feedback {
+            margin-bottom: 342px;
             .notification_title {
                 margin-top: 40px;
-            }
-            .notification_list {
-                .notification_item:last-child {
-                    margin-bottom: 10vw;
-                }
             }
         }
     }
@@ -25,9 +21,9 @@
 .notification_title {
     font-size: 16px;
     font-weight: 700;
-    line-height: 21px;
-    margin-bottom: 10px;
-    color: #000;
+    line-height: 22px;
+    margin-bottom: 11px;
+    color: #2B2B2B
 }
 
 .notification_name {
@@ -40,12 +36,13 @@
     font-size: 12px;
     line-height: 16px;
     color: #676767;
+    margin-top: 5px;
 }
 
 .notification_form {
     display: flex;
     justify-content: space-between;
-    padding: 20px 0;
+    padding: 19px 0;
     border-bottom: 1px solid #DDDDDD;
 }
 

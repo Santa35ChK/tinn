@@ -2,7 +2,6 @@
     <div class="page">
         <div class="page_container">
             <PageSwitcher/>
-        <!-- <button @click="showToast">button</button> -->
             <GeneralSettings v-if="general"/>
             <PersonalSettings v-if="personal" @onSave="showToast"/>
             <NotificationSettings v-if="notification"/>
@@ -32,15 +31,15 @@ export default {
             this.$toast.success("Сохранено")
         },
         handleSwitch(name) {
-            if (name == "general") {
+            if (name === "general") {
                 this.general = true
                 this.personal = false
                 this.notification = false
-            } else if (name == "personal") {
+            } else if (name === "personal") {
                 this.personal = true
                 this.general = false
                 this.notification = false
-            } else if (name == "notification") {
+            } else if (name === "notification") {
                 this.notification = true
                 this.general = false
                 this.personal = false
@@ -49,14 +48,3 @@ export default {
     }
 }
 </script>
-
-<style lang="scss">
-    .page {
-        .page_container {
-            padding: 30px 13vw;
-            display: flex;
-            justify-content: space-between;
-            background: #FAFCFF
-        }
-    }
-</style>

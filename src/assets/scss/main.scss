@@ -5,3 +5,13 @@
     box-sizing: border-box;
     font-family: "Nunito";
 }
+
+.page {
+    .page_container {
+        min-height: 88vh;
+        padding: 30px 365px;
+        display: flex;
+        justify-content: space-between;
+        background: #FAFCFF
+    }
+}

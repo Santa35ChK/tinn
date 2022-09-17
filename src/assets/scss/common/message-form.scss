@@ -1,10 +1,11 @@
 .message-form {
-    padding: 0px 20px 15px;
+    padding: 0px 19px 15px 20px;
     .message-form_container {
+        width: 470px;
         background: #FFFFFF;
         border: 1px solid #D8D8D8;
         border-radius: 22.5px;
-        padding: 7px 15px;
+        padding: 6px 15px;
         display: flex;
         align-items: center;
         justify-content: space-between;

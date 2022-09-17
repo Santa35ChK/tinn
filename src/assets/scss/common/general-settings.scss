@@ -1,12 +1,13 @@
 .general {
     .general_container {
-        padding: 63px 30px 20px 30px;
+        padding: 63px 31px 20px 30px;
         background: #FFFFFF;
         box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.03);
         border-radius: 10px;
         .general_info {
             .general_content {
-                padding: 20px 0;
+                width: 439px;
+                padding: 19px 0;
                 border-top: 1px solid #DDDDDD;
                 border-bottom: 1px solid #DDDDDD;
                 display: flex;
@@ -57,7 +58,7 @@
                 }
             }
             .general_post {
-                padding: 20px 0;
+                padding: 19px 0;
                 display: flex;
                 border-bottom: 1px solid #DDDDDD;
                 .general_text {
@@ -65,7 +66,7 @@
                 }
             }
             .general_phone {
-                padding: 20px 0;
+                padding: 19px 0;
                 display: flex;
                 border-bottom: 1px solid #DDDDDD;
                 .general_text {
@@ -73,7 +74,7 @@
                 }
             }
             .general_address {
-                padding: 20px 0;
+                padding: 19px 0;
                 display: flex;
                 border-bottom: 1px solid #DDDDDD;
                 .general_text {
@@ -81,7 +82,7 @@
                 }
             }
             .general_lang {
-                padding-top: 20px;
+                padding-top: 19px;
                 display: flex;
                 .general_text {
                     margin-left: 158px

@@ -46,11 +46,13 @@ export default new Vuex.Store({
         ],
         chat: {
             users: [{
+                    username: "Lorem Ipsum",
                     name: 'Lorem',
                     surname: 'Ipsum',
                     avatar: require("@/assets/img/avatar.svg")
                 },
                 {
+                    username: "example example",
                     name: 'example',
                     surname: "example",
                     avatar: require("@/assets/img/avatar.svg")
@@ -86,7 +88,7 @@ export default new Vuex.Store({
             return state.chat.users
         },
         getUser: (state) => (query) => {
-            return state.chat.users.filter(user => user.name === query)
+            return state.chat.users.filter(user => user.username.includes(query))
         }
     }
 })
