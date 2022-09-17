@@ -23,13 +23,10 @@
                     <div class="error" v-if="!$v.copyUserData.phone.required">Поле обязательно для заполнения</div>
                     <div class="error" v-if="!$v.copyUserData.phone.minLength">Введите номер в формате 900-000-00-00</div>
                     <div class="personal_date">
-                        <div class="error" v-if="!$v.copyUserData.day.required || !$v.copyUserData.day.between">!</div>
                         <input placeholder="ДД" id="day" v-mask="'##'" class="personal_day" :class="{ 'input-error': $v.copyUserData.day.$error }" v-model.trim="$v.copyUserData.day.$model"
                         >
-                        <div class="error" v-if="!$v.copyUserData.month.required || !$v.copyUserData.month.between">!</div>
                         <input  placeholder="MM" id="month" v-mask="'##'" class="personal_month" :class="{ 'input-error': $v.copyUserData.month.$error }" v-model.trim="$v.copyUserData.month.$model"
                         >
-                        <div class="error" v-if="!$v.copyUserData.year.required || !$v.copyUserData.year.between">!</div>
                         <input placeholder="ГГГГ" v-mask="'####'" id="year" class="personal_year" :class="{ 'input-error': $v.copyUserData.year.$error }" v-model.trim="$v.copyUserData.year.$model"
                         >
                     </div>
