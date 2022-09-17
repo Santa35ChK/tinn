@@ -70,11 +70,6 @@ export default {
                 document.querySelector(".chat_messages").classList.add("closed")
             }
         }
-    },
-    watch: {
-        screenWidth() {
-            console.log(this.screenWidth)
-        }
     }
 }
 </script>
