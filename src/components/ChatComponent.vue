@@ -10,7 +10,7 @@
                     </div>
                 </div>
             </div>
-            <div class="chat_messages">
+            <div class="chat_messages closed">
                 <div class="chat_user-window">
                     <div class="chat_user">
                         <div class="chat_button" @click="showUsers">&#8592;</div>
@@ -34,7 +34,6 @@ export default {
         return {
             users: '',
             selectedUser:'',
-            screenWidth: window.screen.width
         }
     },
     components: {
@@ -44,9 +43,6 @@ export default {
         this.users = this.$store.getters.getUsers
     },
     mounted() {
-        if(this.screenWidth <= 1024) {
-            document.querySelector(".chat_messages").classList.add("closed")
-        }
         this.selectedUser = this.users[0]
     }
     ,
@@ -59,16 +55,12 @@ export default {
         },
         selectUser(i) {
             this.selectedUser = this.users[i]
-            if(this.screenWidth <= 1024) {
                 document.querySelector(".chat_messages").classList.remove("closed");
                 document.querySelector(".chat_users").classList.add("closed")
-            }
         },
         showUsers() {
-            if(this.screenWidth <= 1024) {
                 document.querySelector(".chat_users").classList.remove("closed");
                 document.querySelector(".chat_messages").classList.add("closed")
-            }
         }
     }
 }
